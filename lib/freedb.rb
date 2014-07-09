@@ -49,7 +49,7 @@
 # = Testing
 #
 # In order to run all tests, you have to burn the "freedb CD Test" at
-# http://www.freedb.org/software/freedb_testcd.zip
+# http://ftp.freedb.org/pub/freedb/misc/freedb_testcd.zip
 # and you must be connected to internet.
 # 
 # Test::Unit library is used for tests. see http://testunit.talbott.ws/
