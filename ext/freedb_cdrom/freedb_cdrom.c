@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <sys/ioctl.h>
+#include <unistd.h>
 
 #include <ruby.h>
 
@@ -90,18 +91,18 @@ static VALUE fdb_get_cdrom(VALUE self, VALUE device) {
   int len;
   int drive, i, totaltime;
   long int cksum=0;
-  unsigned char first=1, last=1;
+  unsigned char last=1;
   struct cdrom_tochdr hdr;
   struct cdrom_tocentry *TocEntry;
 
 
   char offsets[1089] = "", buff[255];
 
-  Check_SafeStr(device);
-  drive = open(RSTRING(device)->ptr, O_RDONLY | O_NONBLOCK);
+  SafeStringValue(device);
+  drive = open(RSTRING_PTR(device), O_RDONLY | O_NONBLOCK);
 
   if (drive < 0) {
-    rb_sys_fail(RSTRING(device)->ptr);
+    rb_sys_fail(RSTRING_PTR(device));
   }
 
   if (ioctl(drive,CDROMREADTOCHDR,&hdr) < 0) {
@@ -109,7 +110,6 @@ static VALUE fdb_get_cdrom(VALUE self, VALUE device) {
     rb_sys_fail("Failed to read TOC entry");
   }
 
-  first=hdr.cdth_trk0;
   last=hdr.cdth_trk1;
   len = (last + 1) * sizeof (struct cdrom_tocentry);
 /*	
