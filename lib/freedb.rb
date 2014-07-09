@@ -184,7 +184,7 @@ class Freedb
       if is_query 
         param
       else
-        require "freedb_cdrom"
+        require "freedb_cdrom/freedb_cdrom"
         get_cdrom(param)
       end
     q = @query.split(" ")
