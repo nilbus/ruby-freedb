@@ -135,7 +135,7 @@ class FreedbError < StandardError ; end
 
 class Freedb
   
-  VERSION = "0.5"
+  VERSION = "0.6"
   PROTO_LEVEL = 5
   CD_FRAME = 75
   VALID_CATEGORIES = [ "blues", "classical", "country", "data", "folk", "jazz", "misc", "newage", "reggae", "rock", "soundtrack" ]

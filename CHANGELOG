@@ -1,3 +1,7 @@
+0.6 => 2014-07-10
+ * Ruby 1.9/2.0 compatibility
+ * available as gem
+ * .ruby-version added
 
 0.5 => 07/02/2003
 * submission (http or mail) added
