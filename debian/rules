@@ -50,7 +50,7 @@ binary-arch: build install
 	dh_testdir
 	dh_testroot
 	dh_installdebconf	
-	dh_installdocs README* test doc/
+	dh_installdocs README* test docs/
 	dh_installexamples examples/*.rb
 #	dh_installmenu
 #	dh_installemacsen
